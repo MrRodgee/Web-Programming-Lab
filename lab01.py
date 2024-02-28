@@ -13,11 +13,9 @@ def get_html_from_url(url: str) -> str:
         print(f"Error: {e}")
         return None
 
-url = 'http://python.org/'  # προσδιορισμός του url
 
-with requests.get(url) as response:  # το αντικείμενο response
+if __name__ == "main":
     url = input('Enter a URL: ')
-
     html_content = get_html_from_url(url)
 
     if html_content:
