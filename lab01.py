@@ -12,13 +12,28 @@ def get_html_from_url(url: str) -> str:
     except requests.RequestException as e:
         print(f"Error: {e}")
         return None
+    
+
+def get_headers_from_url(url: str) -> dict:
+    try:
+        response = requests.get(url)
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            return response.headers
+        else:
+            print(f"Failed to retrieve headers. Status code: {response.status_code}")
+            return None
+    except requests.RequestException as e:
+        print(f"Error: {e}")
+        return None
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     url = input('Enter a URL: ')
-    html_content = get_html_from_url(url)
+    headers = get_headers_from_url(url)
 
-    if html_content:
-        print(html_content)
+    if headers:
+        for header, value in headers.items():
+            print(f"{header}: {value}")
     else:
-        print("Failed to retrieve HTML from the specified URL.")
+        print("Failed to retrieve HTML headers from the specified URL.")
