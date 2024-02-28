@@ -1,4 +1,6 @@
-import requests  # Import library
+# Import libraries
+import requests
+from datetime import datetime
 
 def get_html_from_url(url: str) -> str:
     try:
@@ -61,9 +63,9 @@ if __name__ == "__main__":
     if web_server := get_web_server(url):
         print(f'Web server: {web_server}')
 
-    if cookies := get_cookies_from_url(url):
+    if cookies := get_cookies(url):
         print('Cookies:')
         for cookie in cookies:
             print(f'\tName: {cookie.name}')
-            print(f'\tExpires: {cookie.expires}\n')
+            print(f"\tExpires: {datetime.utcfromtimestamp(cookie.expires) if cookie.expires is not None else '--'}\n")
 
