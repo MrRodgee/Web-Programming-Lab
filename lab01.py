@@ -1,17 +1,26 @@
-import requests  # εισαγωγή της βιβλιοθήκης
+import requests  # Import library
 
-def more(text):
-    count = 0
-    for line in text.split('\n'):
-        print(line)
-        count += 1
-        if count % 30 == 0:
-            reply = input('Show more (y/n)? ')
-            if reply == 'n':
-                break
+def get_html_from_url(url: str) -> str:
+    try:
+        response = requests.get(url)
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            return response.text
+        else:
+            print(f"Failed to retrieve HTML. Status code: {response.status_code}")
+            return None
+    except requests.RequestException as e:
+        print(f"Error: {e}")
+        return None
 
 url = 'http://python.org/'  # προσδιορισμός του url
 
 with requests.get(url) as response:  # το αντικείμενο response
-    html = response.text
-    more(html)
+    url = input('Enter a URL: ')
+
+    html_content = get_html_from_url(url)
+
+    if html_content:
+        print(html_content)
+    else:
+        print("Failed to retrieve HTML from the specified URL.")
