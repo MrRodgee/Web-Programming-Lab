@@ -68,4 +68,6 @@ if __name__ == "__main__":
         for cookie in cookies:
             print(f'\tName: {cookie.name}')
             print(f"\tExpires: {datetime.utcfromtimestamp(cookie.expires) if cookie.expires is not None else '--'}\n")
+    else:
+        print('Failed to retrieve cookies or this website has no cookies.')
 
