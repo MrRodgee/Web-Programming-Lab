@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab2-2</title>
+        <style>
+            input[type="text"], input[type="tel"], input[type="email"], input[type="number"] {
+                height: 30px;
+                width: 250px;
+            }
+
+            input[type="date"] {
+                height: 30px;
+            }
+
+            #address {
+                width: 512px;
+            }
+
+            #am {
+                width: 253px;
+            }
+
+            select {
+                height: 36px;
+            }
+
+            fieldset {
+                width: 550px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Αίτηση έκδοσης πιστοποιητικού</h1>
+
+            <form>
+                <fieldset>
+                    <legend>Στοιχεία φοιτητή</legend>
+                        <label><em>Συμπληρώστε τα στοιχεία σας με ελληνικούς χαρακτήρες</em></label>
+                        <br><br>
+
+                        <label for="name">Ονοματεπώνυμο</label>
+                        <table>
+                            <tr>
+                                <td><input type="text" name="fname" placeholder="Ονομα" required></td>
+                                <td><input type="text" name="lname" placeholder="Επώνυμο" required></td>
+                            </tr>
+                        </table><br>
+
+                        <label for="address">Στοιχεία διεύθυνσης</label>
+                        <table>
+                            <tr>
+                                <td colspan="2"><input type="text" id="address" name="address" placeholder="Οδός και αριθμός" required></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="city" name="city" placeholder="Πόλη" required></td>
+                                <td><input type="text" id="postCode" name="postCode" placeholder="Ταχυδρομικός κώδικας" required></td>
+                            </tr>
+                        </table><br>
+
+                        <label for="phone">Στοιχεία επικοινωνίας</label>
+                        <table>
+                            <tr>
+                                <td><input type="tel" id="phone" name="phone" placeholder="Τηλέφωνο" pattern="[0-9]{10}" required></td>
+                                <td><input type="text" id="email" name="email" placeholder="Διεύθυνση μέιλ" required></td>
+                            </tr>
+                        </table><br>
+
+                        <label>Έτος σπουδών</label>
+
+                        <input type="radio" id="yearOfStudy1" name="yearOfStudy" value="Α" required>
+                        <label for="yearOfStudy1">Α</label>
+
+                        <input type="radio" id="yearOfStudy2" name="yearOfStudy" value="Β" required>
+                        <label for="yearOfStudy2">Β</label>
+
+                        <input type="radio" id="yearOfStudy3" name="yearOfStudy" value="Γ" required>
+                        <label for="yearOfStudy3">Γ</label>
+
+                        <input type="radio" id="yearOfStudy4" name="yearOfStudy" value="Δ" required>
+                        <label for="yearOfStudy4">Δ</label>
+
+                        <input type="radio" id="yearOfStudy5" name="yearOfStudy" value="Ε" required>
+                        <label for="yearOfStudy5">Ε</label>
+                        <br><br>
+
+                        <label for="am">Αριθμός μητρώου</label><br>
+                        <input type="number" id="am" name="am" placeholder="1083876" min="0" max="9999999" size="7" required>
+        
+                </fieldset>
+
+                <fieldset>
+                    <legend>Επιλογή πιστοποιητικού</legend>
+        
+                        <label for="certificate">Είδος πιστοποιητικού</label><br>
+                        <select id="certificate" name="certificate" required>
+                            <option value="">Επιλέξτε ένα πιστοποιητικό</option>
+                            <option value="study-certificate">Βεβαίωση σπουδών</option>
+                            <option value="student-card">Φωτοτυπία καρτέλας</option>
+                            <option value="transcript">Αναλυτική βαθμολογία</option>
+                        </select>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Παραλαβή πιστοποιητικού</legend>
+
+                        <input type="radio" id="takeAway" name="certificateReceipt" required>
+                        <label for="takeAway">Παραλαβή από τη γραμματεία</label>
+                        <br>
+
+                        <input type="radio" id="houseDelivery" name="certificateReceipt" required>
+                        <label for="houseDelivery">Αποστολή στην διεύθυνση οικίας</label>
+                        <br><br>
+
+                        <label for="date">Ημερομηνία παραλαβής</label><br>
+                        <input type="date" id="date" name="date" required>
+                        
+                </fieldset>
+
+                <input type="submit" value="Υποβολή" style="padding: 5px 25px;">
+
+            </form>
+                        
+    </body>
+</html>
